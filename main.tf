@@ -7,8 +7,10 @@ terraform {
   }
 }
 
+
+
 provider "google" {
-  credentials = file("jay-auth.json")
+  credentials = file("${var.project}-auth.json")
 
   project = "tf-test-yo"
   region  = "us-central1"
@@ -16,5 +18,5 @@ provider "google" {
 }
 
 resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
+  name = var.project
 }
