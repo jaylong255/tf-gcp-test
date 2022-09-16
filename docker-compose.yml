@@ -1,0 +1,12 @@
+version: '3'
+services:
+  gcloud:
+    build: .
+    volumes:
+      - .:/app
+    networks:
+      - gcloud-test
+
+networks:
+  gcloud-test:
+    driver: "bridge"

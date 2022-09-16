@@ -1,0 +1,10 @@
+.git
+.DS_Store
+build
+docker-make.sh
+secret-docker.sh
+Jenkinsfile
+.vscode
+/docs/
+/doc/
+docker-compose.yml
