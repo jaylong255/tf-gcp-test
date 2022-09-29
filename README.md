@@ -16,15 +16,13 @@ This repository includes a Dockerfile that installs and configures Terraform and
 
 ### General
 
-`docker-compose build`
+Build the docker image with Terraform and Google Cloud SDK installed and copy the TF modules over.
 
-Builds the docker image with Terraform and Google Cloud SDK installed and copies the TF modules over.
+`docker-compose build`
 
 Useful in case you need to jump into the container and run commands directly for experimentation.
 
 `docker-compose run gcloud /bin/bash`
-
-
 
 ### Terraform 
 
