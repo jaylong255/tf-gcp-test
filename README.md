@@ -9,8 +9,22 @@ This repository includes a Dockerfile that installs and configures Terraform and
 - GCP authentication json file
 
 ## Building Your Setup
-- From the GCP console, generate an authentication json for your project. 
+
+### Authenticating With GCP
+
+If you do not have a service account for your project, review this documentation on how to create and manage service accounts. https://cloud.google.com/iam/docs/creating-managing-service-accounts. Once you have a service account with the necessary permissions, use a key to authenticate.
+
+Note: Google recommends that we update this setup to instead use Workload Identity Federation https://cloud.google.com/iam/docs/workload-identity-federation?_ga=2.196205487.-221902407.1664555911. As of this writing, we're still using keys.
+
+- From the GCP console, go to IAM & Admin -> Service Accounts. 
+- Select your service account. Then select the KEYS tab.
+- Click on the ADD KEY drop list and then select Create new key
+- Make sure JSON is selected and click CREATE
+- Once the file is downloaded, move it into your project root and rename it using the convention `myprojectname-auth.json`. This will ensure that the sensitive contents of this file will not be committed to source control.
+
+### Local Config
 - Copy the .env.example file over to .env and adjust the variable values accordingly. At the time of this writing, the only one is TF_VAR_project. 
+- Make sure the TF_VAR_project value matches the project name in google cloud as well as the name of your authentication json.
 
 ## Commands
 
